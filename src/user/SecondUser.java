@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,6 +23,11 @@ public class SecondUser implements observer {
     public SecondUser(String na) throws IOException {
         name = na;
         Stage stage = new Stage();
+        label.setTextFill(Color.WHITE);
+        label.setFont(Font.font ("Verdana", 17));
+        error.setTextFill(Color.WHITE);
+        components.setStyle("-fx-background-color: green");
+
         components.add(label, 0, 0);
         components.add(error,0,2);
 

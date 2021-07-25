@@ -8,7 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.text.Font;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -24,6 +28,11 @@ public class FirstUser implements observer {
     public FirstUser(String na) throws IOException {
         name = na;
         Stage stage = new Stage();
+        label.setTextFill(Color.WHITE);
+        label.setFont(Font.font ("Verdana", 17));
+        error.setTextFill(Color.WHITE);
+        components.setStyle("-fx-background-color: red");
+
         components.add(label, 0, 0);
         components.add(error,0,2);
 

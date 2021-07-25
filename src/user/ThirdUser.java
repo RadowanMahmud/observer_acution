@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 
@@ -21,6 +23,10 @@ public class ThirdUser implements observer{
     public ThirdUser(String na) throws IOException {
         name = na;
         Stage stage = new Stage();
+
+        label.setFont(Font.font ("Verdana", 17));
+        components.setStyle("-fx-background-color: lightblue");
+
         components.add(label, 0, 0);
         components.add(error,0,2);
 
