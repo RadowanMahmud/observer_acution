@@ -1,16 +1,11 @@
 package youtbe;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import user.FirstUser;
 import user.SecondUser;
 import user.ThirdUser;
@@ -18,14 +13,13 @@ import user.observer;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Observer;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class Controller implements Initializable {
 
     @FXML
-    Button first_user,second_user,third_user;
+    Button first_user,second_user,third_user,reset_button;
     @FXML
     TextField bidding_amount;
     @FXML
@@ -53,7 +47,7 @@ public class Controller implements Initializable {
         }
 
         Scanner cin=new Scanner(System.in);
-        youtubeChannel u = new youtubeChannel();
+        auction u = new auction();
         u.subscribe(a);
         u.subscribe(b);
         u.subscribe(c);
@@ -97,6 +91,18 @@ public class Controller implements Initializable {
                 e1.printStackTrace();
             }
         });
+
+        reset_button.setOnAction(e->{
+            current_bidder.setText("Current Bidder");
+            current_bid_amount.setText("Current Bid Amount");
+            bidding_amount.clear();
+            try {
+                u.ressetAuction();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
 
     }
 }

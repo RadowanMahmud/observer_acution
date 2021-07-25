@@ -101,6 +101,14 @@
                                                 <Font size="12.0" />
                                             </font>
                                         </Label>
+                                        <Button fx:id="reset_button" layoutX="308.0" layoutY="196.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="105.0" style="-fx-background-color: yellow;" text="Reset" textFill="#000000">
+                                            <font>
+                                                <Font name="System Bold Italic" size="17.0" />
+                                            </font>
+                                            <effect>
+                                                <DropShadow />
+                                            </effect>
+                                        </Button>
                                     </children></AnchorPane>
                             </children>
                             <effect>

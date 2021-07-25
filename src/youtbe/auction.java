@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class youtubeChannel {
+public class auction {
 
     ArrayList<observer> list=new ArrayList<observer>();
-    private int amount=1000;
+    private int amount=0;
     public void setAmount(int am){
         this.amount=am;
     }
@@ -27,6 +27,28 @@ public class youtubeChannel {
             iter.next().getNotification(a,ch);
         }
     }
+
+    public void notifyerror(observer a,int ch) throws IOException {
+        Iterator<observer> iter = list.iterator();
+
+        while (iter.hasNext()) {
+            iter.next().getError(a,ch);
+        }
+    }
+
+    public void resetObservers() throws IOException {
+        Iterator<observer> iter = list.iterator();
+
+        while (iter.hasNext()) {
+            iter.next().reset();
+        }
+    }
+
+    public void ressetAuction() throws IOException {
+        setAmount(0);
+        resetObservers();
+    }
+
     public boolean upload(observer a,int ch) throws IOException {
         if(ch>amount){
             setAmount(ch);
@@ -34,7 +56,7 @@ public class youtubeChannel {
             return true;
         }
         else{
-            System.out.println("amount is not enough");
+            notifyerror(a,ch);
             return false;
         }
     }
