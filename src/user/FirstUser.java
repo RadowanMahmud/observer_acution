@@ -42,6 +42,11 @@ public class FirstUser implements observer {
     }
 
     @Override
+    public void getError() {
+
+    }
+
+    @Override
     public String getName() {
         return this.name;
     }
